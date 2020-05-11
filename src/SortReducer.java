@@ -9,6 +9,7 @@ public class SortReducer extends Reducer<InputPair, NullWritable,InputPair,NullW
     public void reduce(InputPair key,Iterable<NullWritable> values,Context c)
             throws IOException,InterruptedException
     {
-        c.write(key,NullWritable.get());
+        for(NullWritable n:values)
+            c.write(key,NullWritable.get());
     }
 }
